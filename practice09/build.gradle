@@ -1,0 +1,42 @@
+plugins {
+    id "java"
+}
+
+group "ru.mirea"
+version "0.0.1"
+
+repositories {
+    mavenCentral()
+}
+
+jar {
+    manifest {
+        attributes "Main-Class": "ru.mirea.Main"
+    }
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+    finalizedBy {
+        copyJar
+    }
+}
+
+task copyJar(type: Copy) {
+    from jar
+    into projectDir
+    finalizedBy {
+        buildDockerImage
+    }
+}
+
+task buildDockerImage(type: Exec) {
+    workingDir projectDir
+    commandLine "docker", "build", "-t", "${project.name}:${project.version}", "."
+    finalizedBy {
+        runDockerContainer
+    }
+}
+
+task runDockerContainer(type: Exec) {
+    commandLine "docker", "run", "${project.name}:${project.version}"
+}
