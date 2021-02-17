@@ -1,18 +1,27 @@
 HELP.md
 target/
 out/
+!**/.mvn/wrapper/maven-wrapper.jar
 !**/src/ru/mirea/**
+!**/src/main/**
+!**/src/test/**
 
-# IntelliJ IDEA
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
 .idea
 *.iws
 *.iml
 *.ipr
 
-# VS Code
-.vscode/
-
-# NetBeans
+### NetBeans ###
 /nbproject/private/
 /nbbuild/
 /dist/
@@ -20,5 +29,8 @@ out/
 /.nb-gradle/
 build/
 
-# OSX
+### VS Code ###
+.vscode/
+
+### OSX ###
 .DS_Store
