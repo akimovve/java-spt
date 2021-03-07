@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Home page</title>
+</head>
+<body>
+<div>
+    <form name="addStudent" method="post" action="/students/add">
+        <label>
+            <input type="text" name="studentFirstName"
+                   placeholder="First name"/>
+        </label>
+        <label>
+            <input type="text" name="studentLastName"
+                   placeholder="Second name"/>
+        </label>
+        <label>
+            <input type="text" name="studentMiddleName"
+                   placeholder="Middle name"/>
+        </label>
+        <label>
+            <input type="text" name="groupName" placeholder="Group"/>
+        </label>
+        <button type="submit">Add</button>
+    </form>
+    {{#groups}}
+        <h2>Group: {{groupName}}</h2>
+        <form method="post" action="/groups/{{id}}/delete">
+            <button type="submit">
+                Remove
+            </button>
+        </form>
+        <form method="post" action="/groups/{{id}}">
+            <button type="submit">
+                Show only this group
+            </button>
+        </form>
+        <ul>
+            <h4>Students:</h4>
+            {{#students}}
+                <li>
+                    <form method="post" action="/students/{{id}}/delete">
+                        {{lastName}} {{firstName}} {{middleName}}
+                        <button type="submit">
+                            Remove
+                        </button>
+                    </form>
+                </li>
+            {{/students}}
+        </ul>
+    {{/groups}}
+    {{^groups}}
+        <h2>No groups added...</h2>
+    {{/groups}}
+</div>
+</body>
+</html>

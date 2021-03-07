@@ -1,0 +1,35 @@
+server:
+  port: ${SERVER_PORT}
+  error:
+    include-message: always
+    include-binding-errors: always
+
+spring:
+  datasource:
+    url: ${SPRING_DATASOURCE_URL}
+  jpa:
+    show-sql: false
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
+  # mail:
+    # host: smtp.yandex.ru
+    # username: ${SPRING_MAIL_USERNAME}
+    # password: ${SPRING_MAIL_PASSWORD}
+    # protocol: smtps
+
+# mail:
+  # to: ${EMAIL_TO_SEND}
+
+dir:
+  result: src/main/resources/result
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+    jmx:
+      exposure:
+        include: "*"
+      domain: practice22
