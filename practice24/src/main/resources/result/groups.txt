@@ -1,0 +1,5 @@
+id|group_name
+2|IKBO-01-19
+4|IKBO-03-19
+5|IKBO-13-19
+6|INBO-01-18
