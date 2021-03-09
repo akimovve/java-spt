@@ -1,0 +1,8 @@
+id|group_id|first_name|last_name|middle_name
+3|2|Valery|Akimov|
+6|4|Ivan|Ivanov|Ivanovich
+7|4|Oleg|Olegov|Olegovich
+8|2|Jack|Dorsey|
+9|5|Matt|White|
+10|5|Max|Maxov|Maxovich
+11|6|Igor|Igorev|
